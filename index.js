@@ -57,12 +57,18 @@ function onDownloadClick(title, id) {
                 const urls = response.message['urls'];
                 const title = response.message['title'];
                 console.log('urls', urls);
-                let i = 0;
-                urls.forEach(url => {
-                    console.log(url);
-                    textarea.value += curl_template(url, title, i);
-                    i += 1;
-                });
+                
+                if (!Array.isArray(urls)) {
+                    textarea.value += curl_template(urls, title, 0);
+                } else {
+                    let i = 0;
+                    urls.forEach(url => {
+                        console.log(url);
+                        textarea.value += curl_template(url, title, i);
+                        i += 1;
+                    });
+                }
+
 
             }
             else {
