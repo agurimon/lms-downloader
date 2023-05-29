@@ -1,0 +1,28 @@
+{
+  "name": "LMS Downloader",
+  "description": "숭실대학교 LMS 비디오 다운로더 입니다.",
+  "version": "1.0",
+  "manifest_version": 2,
+  "content_scripts": [{
+    "matches": [
+      "https://canvas.ssu.ac.kr/courses/*/modules/items/*",
+      "https://canvas.ssu.ac.kr/courses/*/modules/items/*?return_url=/courses/*/external_tools/*"
+    ],
+    "js": ["index.js"],
+    "run_at": "document_end"
+  }],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "permissions": [
+    "https://canvas.ssu.ac.kr/courses/*",
+    "https://commons.ssu.ac.kr/viewer/ssplayer/uniplayer_support/content.php?content_id=*",
+    "https://ssuin-object.commonscdn.com/ssu-contents/contents/*",
+    "downloads",
+    "webRequest",
+    "webRequestBlocking"
+  ],
+  "web_accessible_resources": [
+    "index.css"
+  ]
+}
