@@ -1,28 +1,39 @@
 {
   "name": "LMS Downloader",
-  "description": "숭실대학교 LMS 비디오 다운로더 입니다.",
+  "icons": {
+    "48": "./images/48.png"
+  },
+  "description": "숭실대학교 LMS 비디오 다운로드 링크 제공 확장프로그램",
   "version": "1.0",
-  "manifest_version": 2,
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "bundle.js"
+  },
+  "permissions": [
+    "downloads",
+    "webRequest",
+    "webRequestBlocking"
+  ],
+  "host_permissions": [
+    "https://canvas.ssu.ac.kr/courses/*",
+    "https://commons.ssu.ac.kr/viewer/ssplayer/uniplayer_support/content.php?content_id=*",
+    "https://ssuin-object.commonscdn.com/ssu-contents/contents/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
   "content_scripts": [{
     "matches": [
       "https://canvas.ssu.ac.kr/courses/*/modules/items/*",
       "https://canvas.ssu.ac.kr/courses/*/modules/items/*?return_url=/courses/*/external_tools/*"
     ],
     "js": ["index.js"],
-    "run_at": "document_end"
+    "css": ["index.css"]
   }],
-  "background": {
-    "scripts": ["background.js"]
-  },
-  "permissions": [
-    "https://canvas.ssu.ac.kr/courses/*",
-    "https://commons.ssu.ac.kr/viewer/ssplayer/uniplayer_support/content.php?content_id=*",
-    "https://ssuin-object.commonscdn.com/ssu-contents/contents/*",
-    "downloads",
-    "webRequest",
-    "webRequestBlocking"
-  ],
   "web_accessible_resources": [
-    "index.css"
+    {
+      "resources": ["index.css"],
+      "matches": ["https://canvas.ssu.ac.kr/*"]
+    }
   ]
 }

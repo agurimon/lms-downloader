@@ -1,0 +1,24 @@
+{
+  "name": "lms-downloader",
+  "version": "1.0.0",
+  "description": "숭실대학교 LMS 동영상 다운로더",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agurimon/lms-downloader.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/agurimon/lms-downloader/issues"
+  },
+  "homepage": "https://github.com/agurimon/lms-downloader#readme",
+  "dependencies": {
+    "browserify": "^17.0.0",
+    "xml2js": "^0.6.0"
+  }
+}
